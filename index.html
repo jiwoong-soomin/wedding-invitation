@@ -450,7 +450,7 @@
 
     <div class="inv-rule"></div>
     <div class="rsvp-title pf">RSVP</div>
-    <div class="rsvp-sub">Please let us know by March 1st<br>소중한 자리에 함께해 주세요</div>
+    <div class="rsvp-sub">소중한 자리에 함께해 주세요</div>
     <button class="rsvp-btn" onclick="document.getElementById('rsvp-modal').style.display='flex'">참석 여부 알리기</button>
 
   </div>
@@ -461,7 +461,6 @@
       <button onclick="closeRsvp()" style="position:absolute; top:16px; right:16px; background:transparent; border:none; font-size:18px; color:#999; cursor:pointer;">✕</button>
 
       <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:20px; margin-bottom:6px;">RSVP</div>
-      <div style="font-family:'Nanum Myeongjo',serif; font-size:12px; color:#999; margin-bottom:24px;">3월 1일까지 회신 부탁드려요</div>
 
       <div id="rsvp-form">
         <div style="margin-bottom:16px;">
@@ -499,8 +498,14 @@
       </div>
 
       <div id="rsvp-success" style="display:none; text-align:center; padding:20px 0;">
-        <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사해요 🤍</div>
-        <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:1.8;">소중한 답변 잘 받았어요.<br>3월 20일에 함께해요!</div>
+        <div id="rsvp-success-yes" style="display:none;">
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사합니다 🤍</div>
+          <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:2;">귀한 걸음 기다리겠습니다.<br>2027년 3월 20일에 뵙겠습니다.</div>
+        </div>
+        <div id="rsvp-success-no" style="display:none;">
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사합니다 🤍</div>
+          <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:2;">축하해 주셔서 감사합니다.<br>보내주신 따뜻한 마음 소중히 간직하며<br>예쁘게 잘 살겠습니다.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -549,15 +554,25 @@
       return;
     }
     document.getElementById('rsvp-error').style.display = 'none';
-    fetch('https://script.google.com/macros/s/AKfycbyq61OTeo7buqoZVa-_tXUEkUl2tl_E8D58UWCK1IoE8hzPTeJMV_uYb77Dcd-Kj5-Pgw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxBTP_22f9rJbI9cCn8NHRQxRZVB-KdR0fRUTgzyO7yyaZHusqhyZ_c0bMlEQXIZp5EYg/exec', {
       method: 'POST',
       body: JSON.stringify({ name: name, attending: selectedAttending, count: count, message: message })
     }).then(function() {
       document.getElementById('rsvp-form').style.display = 'none';
       document.getElementById('rsvp-success').style.display = 'block';
+      if (selectedAttending === '예') {
+        document.getElementById('rsvp-success-yes').style.display = 'block';
+      } else {
+        document.getElementById('rsvp-success-no').style.display = 'block';
+      }
     }).catch(function() {
       document.getElementById('rsvp-form').style.display = 'none';
       document.getElementById('rsvp-success').style.display = 'block';
+      if (selectedAttending === '예') {
+        document.getElementById('rsvp-success-yes').style.display = 'block';
+      } else {
+        document.getElementById('rsvp-success-no').style.display = 'block';
+      }
     });
   }
   var lbTotal = 9;
