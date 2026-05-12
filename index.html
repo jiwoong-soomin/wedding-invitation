@@ -476,7 +476,7 @@
           </div>
         </div>
 
-        <div style="margin-bottom:16px;">
+        <div id="count-field" style="display:none; margin-bottom:16px;">
           <label style="font-family:'Nanum Myeongjo',serif; font-size:12px; color:#555; display:block; margin-bottom:6px;">참석 인원 *</label>
           <select id="rsvp-count" style="width:100%; border:none; border-bottom:1px solid #bbb; padding:8px 4px; font-family:'Nanum Myeongjo',serif; font-size:14px; outline:none; background:transparent; color:#1a1a1a;">
             <option value="">인원을 선택해주세요</option>
@@ -498,14 +498,8 @@
       </div>
 
       <div id="rsvp-success" style="display:none; text-align:center; padding:20px 0;">
-        <div id="rsvp-success-yes" style="display:none;">
-          <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사합니다 🤍</div>
-          <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:2;">귀한 걸음 기다리겠습니다.<br>2027년 3월 20일에 뵙겠습니다.</div>
-        </div>
-        <div id="rsvp-success-no" style="display:none;">
-          <div style="font-family:'Playfair Display',serif; font-style:italic; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사합니다 🤍</div>
-          <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:2;">축하해 주셔서 감사합니다.<br>보내주신 따뜻한 마음 소중히 간직하며<br>예쁘게 잘 살겠습니다.</div>
-        </div>
+        <div style="font-family:'Nanum Myeongjo',serif; font-weight:700; color:#1a3a8f; font-size:22px; margin-bottom:12px;">감사합니다 🤍</div>
+        <div style="font-family:'Nanum Myeongjo',serif; font-size:14px; color:#555; line-height:2;">축하해 주셔서 감사합니다.<br>전해주신 따뜻한 마음 잊지 않고<br>행복하게 잘 살겠습니다.</div>
       </div>
     </div>
   </div>
@@ -525,6 +519,8 @@
     document.getElementById('btn-yes').style.color = val === '예' ? '#fff' : '';
     document.getElementById('btn-no').style.background = val === '아니오' ? '#1a3a8f' : '';
     document.getElementById('btn-no').style.color = val === '아니오' ? '#fff' : '';
+    document.getElementById('count-field').style.display = val === '예' ? 'block' : 'none';
+    if (val === '아니오') document.getElementById('rsvp-count').value = '';
   }
 
   function closeRsvp() {
@@ -549,7 +545,7 @@
     var name = document.getElementById('rsvp-name').value.trim();
     var count = document.getElementById('rsvp-count').value;
     var message = document.getElementById('rsvp-message').value.trim();
-    if (!name || !selectedAttending || !count) {
+    if (!name || !selectedAttending || (selectedAttending === '예' && !count)) {
       document.getElementById('rsvp-error').style.display = 'block';
       return;
     }
@@ -560,19 +556,9 @@
     }).then(function() {
       document.getElementById('rsvp-form').style.display = 'none';
       document.getElementById('rsvp-success').style.display = 'block';
-      if (selectedAttending === '예') {
-        document.getElementById('rsvp-success-yes').style.display = 'block';
-      } else {
-        document.getElementById('rsvp-success-no').style.display = 'block';
-      }
     }).catch(function() {
       document.getElementById('rsvp-form').style.display = 'none';
       document.getElementById('rsvp-success').style.display = 'block';
-      if (selectedAttending === '예') {
-        document.getElementById('rsvp-success-yes').style.display = 'block';
-      } else {
-        document.getElementById('rsvp-success-no').style.display = 'block';
-      }
     });
   }
   var lbTotal = 9;
