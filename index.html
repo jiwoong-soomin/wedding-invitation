@@ -335,7 +335,7 @@
   <!-- 갤러리: <img src="photos/1.jpg"> 형식으로 사진을 교체하세요 -->
   <div class="gallery-section">
     <div class="gallery-single">
-      <img class="gallery-single-img" id="gallery-img" src="01.jpg" alt="" onclick="openLightbox(gIdx)">
+      <img class="gallery-single-img" id="gallery-img" src="01.jpg" alt="" onclick="if(!gMoved)openLightbox(gIdx)">
       <button class="gallery-nav-btn gallery-nav-prev" onclick="gChange(-1)">&#8592;</button>
       <button class="gallery-nav-btn gallery-nav-next" onclick="gChange(1)">&#8594;</button>
     </div>
@@ -586,6 +586,39 @@
     document.getElementById('gallery-img').src = gImages[gIdx];
     document.getElementById('gallery-counter-bar').textContent = (gIdx + 1) + ' / ' + gImages.length;
   }
+
+  // 스와이프 지원
+  var gTouchStartX = 0;
+  var gTouchEndX = 0;
+  var gTouchStartY = 0;
+  var gMoved = false;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var galleryEl = document.getElementById('gallery-img');
+    if (!galleryEl) return;
+
+    galleryEl.addEventListener('touchstart', function(e) {
+      gTouchStartX = e.touches[0].clientX;
+      gTouchStartY = e.touches[0].clientY;
+      gMoved = false;
+    }, { passive: true });
+
+    galleryEl.addEventListener('touchmove', function(e) {
+      var dx = Math.abs(e.touches[0].clientX - gTouchStartX);
+      var dy = Math.abs(e.touches[0].clientY - gTouchStartY);
+      if (dx > dy && dx > 10) gMoved = true;
+    }, { passive: true });
+
+    galleryEl.addEventListener('touchend', function(e) {
+      gTouchEndX = e.changedTouches[0].clientX;
+      var diff = gTouchStartX - gTouchEndX;
+      if (gMoved && Math.abs(diff) > 40) {
+        gChange(diff > 0 ? 1 : -1);
+      } else if (!gMoved) {
+        openLightbox(gIdx);
+      }
+    });
+  });
 
   var lbIdx = 0;
   var lbTotal = 11;
