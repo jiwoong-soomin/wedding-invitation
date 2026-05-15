@@ -130,24 +130,23 @@
     .bullet-dot { color: #1a3a8f; font-size: 16px; flex-shrink: 0; line-height: 1.6; }
 
     .gallery-section { margin: 0; padding: 0 32px; }
-    .gallery-main-photo { height: 320px; overflow:hidden; margin-bottom:4px; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 4px;
-    }
-    .gallery-thumb {
-      aspect-ratio: 4 / 6;
-      background: #e0e0e0;
+    .gallery-slider-wrap {
+      overflow-x: auto;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      overflow: hidden;
+      gap: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .gallery-thumb:hover { opacity: 0.85; }
-    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-thumb-lbl { font-size: 8px; letter-spacing: 0.1em; color: #aaa; text-transform: uppercase; }
+    .gallery-slider-wrap::-webkit-scrollbar { display: none; }
+    .gallery-slide-item {
+      flex: 0 0 72%;
+      scroll-snap-align: start;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+    }
+    .gallery-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+    .gallery-hint { text-align: center; font-size: 9px; letter-spacing: 0.15em; color: #bbb; text-transform: uppercase; margin-top: 10px; }
 
     .lightbox {
       display: none;
@@ -327,21 +326,20 @@
 
   <!-- 갤러리: <img src="photos/1.jpg"> 형식으로 사진을 교체하세요 -->
   <div class="gallery-section">
-    <div class="gallery-main-photo" onclick="openLightbox(0)">
-      <img src="01.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block; cursor:pointer;">
+    <div class="gallery-slider-wrap">
+      <div class="gallery-slide-item" onclick="openLightbox(0)"><img src="01.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(1)"><img src="02.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(2)"><img src="03.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(3)"><img src="04.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(4)"><img src="05.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(5)"><img src="06.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(6)"><img src="07.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(7)"><img src="08.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(8)"><img src="09.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(9)"><img src="10.jpg" alt=""></div>
+      <div class="gallery-slide-item" onclick="openLightbox(10)"><img src="11.jpg" alt=""></div>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-thumb" onclick="openLightbox(1)"><img src="02.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(2)"><img src="03.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(3)"><img src="04.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(4)"><img src="05.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(5)"><img src="06.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(6)"><img src="07.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(7)"><img src="08.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(8)"><img src="09.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(9)"><img src="10.jpg" alt=""></div>
-      <div class="gallery-thumb" onclick="openLightbox(10)"><img src="11.jpg" alt=""></div>
-    </div>
+    <div class="gallery-hint">← swipe →</div>
   </div>
 
   <div class="lightbox" id="lightbox">
