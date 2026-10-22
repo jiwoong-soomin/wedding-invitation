@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>지웅과 수민의 결혼식에 초대합니다</title>
   <meta name="description" content="2027년 3월 20일 토요일 오후 5시 · 수원파티웨딩유" />
   <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
   <meta property="og:site_name" content="Jiwoong & Soomin Wedding" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');</script>
   <style>
     :root {
@@ -27,8 +27,8 @@
       --greige-dark: #e3e3e2;
       --card: #ffffff;
       --line: #d9d9d7;
-      --serif: 'Nanum Myeongjo', serif;
-      --hand: 'Nanum Myeongjo', serif;
+      --serif: 'Noto Serif KR', 'Nanum Myeongjo', 'AppleMyungjo', serif;
+      --hand: var(--serif);
       --sans: 'DM Sans', sans-serif;
       --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .3  0 0 0 0 .3  0 0 0 .05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
@@ -46,6 +46,8 @@
       font-family: var(--serif);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      word-break: keep-all;
     }
 
     .inv {
@@ -379,7 +381,7 @@
       background-image: var(--grain);
       color: #f3f3f1;
       text-align: center;
-      padding: 52px 26px 30px;
+      padding: 52px 26px calc(80px + env(safe-area-inset-bottom, 0px));
     }
     .sec.rsvp + .sec, .sec + .sec.rsvp { border-top: none; }
     .rsvp .eyebrow { color: #e9a7b0 !important; }
@@ -592,7 +594,7 @@
         <button class="gallery-nav-btn gallery-nav-prev" onclick="gChange(-1)" aria-label="이전 사진">&#8592;</button>
         <button class="gallery-nav-btn gallery-nav-next" onclick="gChange(1)" aria-label="다음 사진">&#8594;</button>
       </div>
-      <div class="gallery-counter-bar" id="gallery-counter-bar">1 / 11</div>
+      <div class="gallery-counter-bar" id="gallery-counter-bar">1 / 9</div>
       <div class="gallery-hint">사진을 누르면 크게 볼 수 있어요</div>
     </div>
   </section>
@@ -602,7 +604,7 @@
     <div class="lightbox-img" id="lb-img"></div>
     <div class="lightbox-controls">
       <button class="lb-btn" onclick="lbChange(-1)" aria-label="이전 사진">&#8592;</button>
-      <span class="lb-counter" id="lb-counter">1 / 11</span>
+      <span class="lb-counter" id="lb-counter">1 / 9</span>
       <button class="lb-btn" onclick="lbChange(1)" aria-label="다음 사진">&#8594;</button>
     </div>
   </div>
@@ -928,7 +930,7 @@
   /* ---------- 갤러리 ---------- */
   var gIdx = 0;
   var gMoved = false;
-  var gImages = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg','11.jpg'];
+  var gImages = ['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','08.jpg','09.jpg','10.jpg'];
 
   function gChange(dir) {
     gIdx = (gIdx + dir + gImages.length) % gImages.length;
