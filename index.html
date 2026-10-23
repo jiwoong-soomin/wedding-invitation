@@ -222,7 +222,14 @@
       padding: 10px;
       box-shadow: 0 8px 26px rgba(0, 0, 0, 0.15);
     }
-    .gallery-single-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+    .gallery-single-img {
+      position: absolute; top: 10px; left: 10px;
+      width: calc(100% - 20px); height: calc(100% - 20px);
+      object-fit: cover; display: block; cursor: pointer;
+    }
+    @supports not (aspect-ratio: 1 / 1) {
+      .gallery-single::before { content: ''; display: block; padding-top: 133.333%; }
+    }
     .gallery-nav-btn {
       position: absolute;
       top: 50%;
@@ -632,7 +639,7 @@
 
     <div class="accordion-content map-panel" id="map">
       <div class="card">
-        <a href="https://naver.me/GkR3XjYm" target="_blank" rel="noopener" class="naver-btn">네이버 지도로 보기</a>
+        <a href="https://naver.me/x8kNJ9Hl" target="_blank" rel="noopener" class="naver-btn">네이버 지도로 보기</a>
 
         <img src="map.jpg" class="map-img" alt="약도">
 
