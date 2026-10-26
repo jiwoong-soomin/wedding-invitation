@@ -810,7 +810,6 @@
 <script>
   /* ---------- RSVP ---------- */
   var RSVP_URL = 'https://script.google.com/macros/s/AKfycbxBTP_22f9rJbI9cCn8NHRQxRZVB-KdR0fRUTgzyO7yyaZHusqhyZ_c0bMlEQXIZp5EYg/exec';
-  var RSVP_SOURCE = '어른용';
   var selectedAttending = '';
   var rsvpSending = false;
 
@@ -899,7 +898,7 @@
       method: 'POST',
       mode: 'no-cors',
       keepalive: true,
-      body: JSON.stringify({ source: RSVP_SOURCE, name: name, attending: selectedAttending, count: count, companion: companion, message: message })
+      body: JSON.stringify({ name: name, attending: selectedAttending, count: count, companion: companion, message: message })
     }).catch(function() {});
 
     var yes = selectedAttending === '예';
