@@ -131,6 +131,9 @@
     }
     .inv-photo-main { aspect-ratio: 1 / 1; background: #e6e6e4; overflow: hidden; }
     .inv-photo-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* 어른용: 메인 사진을 자르지 않고 원본 비율 그대로 표시 */
+    .inv-photo-main { aspect-ratio: auto; }
+    .inv-photo-main img { height: auto; }
 
     .inv-dday {
       display: inline-block;
