@@ -14,20 +14,20 @@
   <meta property="og:site_name" content="Jiwoong & Soomin Wedding" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');</script>
   <style>
     :root {
-      --navy: #2a2a2d;
-      --navy-deep: #232326;
+      --navy: #34405c;
+      --navy-deep: #2f3a54;
       --gold: #c23a4b;
-      --ink: #2a2a2d;
-      --muted: #8e8e8c;
-      --paper: #f5f5f4;
-      --greige: #ececeb;
-      --greige-dark: #e3e3e2;
+      --ink: #4a4b50;
+      --muted: #9b9b9d;
+      --paper: #fafaf9;
+      --greige: #f3f3f2;
+      --greige-dark: #ededec;
       --card: #ffffff;
-      --line: #d9d9d7;
+      --line: #e4e4e2;
       --serif: 'Noto Serif KR', 'Nanum Myeongjo', 'AppleMyungjo', serif;
       --hand: var(--serif);
       --sans: 'DM Sans', sans-serif;
@@ -40,7 +40,7 @@
 
     body {
       margin: 0;
-      background: #d8d8d6;
+      background: #e2e2e0;
       display: flex;
       justify-content: center;
       min-height: 100vh;
@@ -80,10 +80,10 @@
       display: block;
       color: var(--navy);
       font-family: var(--serif);
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 0.3em;
-      padding-left: 0.3em;
+      font-weight: 600;
+      font-size: 21px;
+      letter-spacing: 0.12em;
+      padding-left: 0.12em;
     }
     .eyebrow {
       order: -1;
@@ -112,11 +112,11 @@
     /* ---------- 1. 히어로 ---------- */
     .hero { padding: 42px 26px 48px; text-align: center; }
     .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-family: 'Great Vibes', 'Playfair Display', cursive;
       font-weight: 400;
-      font-size: 36px;
-      line-height: 1.25;
+      font-size: 38px;
+      line-height: 1.3;
+      white-space: nowrap;
       color: var(--gold);
       margin: 0 0 26px;
       position: relative; z-index: 1;
@@ -168,7 +168,7 @@
       color: var(--navy);
       position: relative; z-index: 1;
     }
-    .invite-when .big { font-size: 15px; font-weight: 700; }
+    .invite-when .big { font-size: 15px; font-weight: 600; }
 
     /* ---------- 3. 우리의 이야기 ---------- */
     .person-label {
@@ -177,9 +177,9 @@
       justify-content: center;
       gap: 10px;
       font-family: var(--hand);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 20px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.1em;
       color: var(--navy);
       margin: 6px 0 16px;
       position: relative; z-index: 1;
@@ -193,14 +193,14 @@
       padding: 18px 18px 19px;
       font-size: 13.5px;
       line-height: 1.95;
-      color: #38383b;
+      color: #56575c;
       
     }
     .bullet-item strong {
       display: block;
       font-family: var(--serif);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--navy);
       letter-spacing: 0.06em;
       margin-bottom: 6px;
@@ -304,11 +304,27 @@
       
     }
     .detail-row { display: flex; gap: 18px; align-items: flex-start; }
-    .detail-row + .detail-row { border-top: 1px dashed var(--line); margin-top: 18px; padding-top: 18px; }
-    .detail-key { font-family: var(--hand); font-weight: 700; font-size: 14px; color: var(--navy); min-width: 44px; letter-spacing: 0.1em;; line-height: 1.5; }
+    .detail-row + .detail-row { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 18px; }
+    .mini-cal { margin: 14px auto 0; max-width: 250px; padding: 11px 8px 8px; background: #fafaf9; border: 1px solid #efefed; }
+    .mc-head { text-align: center; font-size: 11.5px; letter-spacing: 0.12em; color: var(--navy); margin-bottom: 7px; }
+    .mc-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+    .mc-wd span { font-size: 10px; color: var(--muted); padding-bottom: 3px; }
+    .mc-days { row-gap: 1px; }
+    .mc-days span { font-size: 11.5px; color: var(--ink); width: 23px; height: 23px; line-height: 23px; margin: 0 auto; border-radius: 50%; }
+    .mini-cal .sun { color: var(--gold); opacity: 0.8; }
+    .mc-days span.on { background: var(--gold); color: #fff; opacity: 1; font-weight: 600; }
+    .mini-cal + .detail-row { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 18px; }
+    .detail-key { font-family: var(--hand); font-weight: 600; font-size: 14px; color: var(--navy); min-width: 44px; letter-spacing: 0.1em;; line-height: 1.5; }
     .detail-val { font-size: 14px; color: var(--ink); line-height: 1.7; flex: 1; }
-    .detail-val .venue { font-size: 16px; font-weight: 700; }
+    .detail-val .venue { font-size: 16px; font-weight: 600; }
     .detail-sub { font-size: 12px; color: var(--muted); display: block; }
+    .addr-line { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .addr-copy {
+      font-family: var(--serif); font-size: 11px; letter-spacing: 0.04em; line-height: 1;
+      color: var(--navy); background: transparent; border: 1px solid #c9ccd4;
+      padding: 5px 8px; cursor: pointer; transition: background 0.15s, color 0.15s;
+    }
+    .addr-copy:hover, .addr-copy.copied { background: var(--navy); color: #fff; border-color: var(--navy); }
     .map-toggle {
       display: inline-block;
       margin-top: 10px;
@@ -323,17 +339,30 @@
     .accordion-content { display: none; }
     .accordion-content.open { display: block; }
 
-    .map-panel { position: relative; z-index: 1; margin-top: 14px; }
-    .naver-btn {
-      display: block; text-align: center;
-      background: #03C75A; color: #fff;
-      font-size: 13px; letter-spacing: 0.1em;
-      padding: 14px; text-decoration: none;
-      font-family: var(--serif); font-weight: 700;
-      border-radius: 0;
+    .map-panel { position: relative; z-index: 1; margin-top: 0; }
+    #map.accordion-content { padding: 0; }
+    .map-box { display: block; position: relative; z-index: 1; margin-top: 16px; background: #fff; padding: 6px; border: 1px solid #e5e5e3; }
+    .map-box img { width: 100%; display: block; }
+    .nav-block { position: relative; z-index: 1; margin-top: 30px; }
+    .nav-title { font-weight: 600; font-size: 15px; color: var(--navy); letter-spacing: 0.04em; }
+    .nav-sub { font-size: 12.5px; color: var(--muted); margin: 4px 0 12px; }
+    .nav-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .nav-btn {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      background: #fff; border: 1px solid #e5e5e3; padding: 14px 4px;
+      font-family: var(--serif); font-size: 13px; color: var(--ink); text-decoration: none;
+      transition: border-color 0.15s;
     }
-    .map-img { width: 100%; display: block; margin: 14px 0 6px; border: 1px solid #e2e2e0; }
-    .tr-item { word-break: keep-all; padding: 16px 0 12px; border-top: 1px dashed var(--line); font-size: 13.5px; line-height: 1.95; color: #38383b; }
+    .nav-btn:hover { border-color: var(--navy); }
+    .nav-btn i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .tr-toggle {
+      position: relative; z-index: 1; width: 100%; margin-top: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: #fff; border: 1px solid #e5e5e3; padding: 15px 18px; cursor: pointer;
+      font-family: var(--serif); font-size: 14px; color: var(--ink); text-align: left;
+    }
+    .map-panel .card { border-top: none; }
+    .tr-item { word-break: keep-all; padding: 16px 0 12px; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.95; color: #56575c; }
     .tr-item:first-of-type { border-top: none; }
     .tr-line { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 2px 0 4px; }
     .line-badge { display: inline-block; color: #fff; font-family: var(--sans); font-weight: 500; font-size: 11.5px; line-height: 1; padding: 5px 9px 5px; border-radius: 20px; letter-spacing: 0.02em; }
@@ -344,13 +373,14 @@
     .tr-list li::before { content: ''; position: absolute; left: 1px; top: 0.85em; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
     .tr-list b { color: var(--ink); }
     .p-badge { display: inline-flex; align-items: center; justify-content: center; width: 19px; height: 19px; margin-right: 7px; background: var(--navy); color: #fff; font-family: var(--sans); font-weight: 500; font-size: 12px; border-radius: 3px; vertical-align: 1px; }
-    .tr-item .tr-t { font-family: var(--serif); font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .tr-item .tr-t { font-family: var(--serif); font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.06em; line-height: 21px; display: flex; align-items: center; gap: 8px; }
+    .tr-item .tr-t::before { content: ''; flex: none; width: 14px; height: 0; border-top: 1px solid var(--gold); }
 
     /* ---------- 6. 마음 전하실 곳 ---------- */
-    .sub-label { font-family: var(--serif); font-weight: 700; font-size: 15px; color: var(--navy); margin: 0 0 12px; position: relative; z-index: 1; }
+    .sub-label { font-family: var(--serif); font-weight: 600; font-size: 15px; color: var(--navy); margin: 0 0 12px; position: relative; z-index: 1; }
     .phone-grid { display: flex; flex-direction: column; gap: 0; margin-bottom: 36px; }
     .phone-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
-    .phone-row + .phone-row { border-top: 1px dashed var(--line); }
+    .phone-row + .phone-row { border-top: 1px solid var(--line); }
     .phone-label { font-size: 14px; color: var(--ink); }
     .phone-val {
       font-size: 14px; color: var(--navy);
@@ -373,7 +403,7 @@
     .accordion-btn:hover { color: var(--navy); }
     .accordion-arrow { font-size: 10px; color: var(--muted); }
     .accordion-content { padding: 0 18px 18px; }
-    .account-row { display: flex; justify-content: space-between; align-items: flex-start; font-size: 13px; margin-bottom: 8px; padding-top: 12px; border-top: 1px dashed var(--line); }
+    .account-row { display: flex; justify-content: space-between; align-items: flex-start; font-size: 13px; margin-bottom: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
     .account-key { color: var(--muted); font-size: 12px; }
     .account-val { font-size: 14px; color: var(--ink); text-align: right; }
     .account-name { font-size: 13px; color: #6c6c6e; display: block; margin-top: 2px; font-family: var(--sans); }
@@ -404,7 +434,7 @@
       display: inline-block;
       background: #f3f3f1; color: var(--navy-deep);
       border: none;
-      font-size: 15px; font-weight: 700; letter-spacing: 0.1em;
+      font-size: 15px; font-weight: 600; letter-spacing: 0.1em;
       padding: 15px 46px;
       cursor: pointer; font-family: var(--serif);
       border-radius: 0;
@@ -441,7 +471,7 @@
     .modal-close { position: absolute; top: 14px; right: 14px; background: transparent; border: none; font-size: 18px; color: #9a9a98; cursor: pointer; width: 36px; height: 36px; z-index: 1; }
     .modal-head { text-align: center; margin-bottom: 28px; }
     .modal-head .eyebrow-s { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: var(--gold); letter-spacing: 0.06em; }
-    .modal-title { font-family: var(--serif); font-weight: 700; letter-spacing: 0.22em; padding-left: 0.22em; font-size: 18px; color: var(--navy); margin: 6px 0 0; }
+    .modal-title { font-family: var(--serif); font-weight: 600; letter-spacing: 0.12em; padding-left: 0.12em; font-size: 18px; color: var(--navy); margin: 6px 0 0; }
     .modal-head .bar { width: 1px; height: 18px; background: var(--gold); margin: 14px auto; opacity: .8; }
     .modal-sub { font-size: 12.5px; color: var(--muted); line-height: 1.8; }
 
@@ -479,17 +509,17 @@
 
     .rsvp-success { display: none; text-align: center; padding: 6px 0 0; }
     .rsvp-success .eyebrow-s { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; color: var(--gold); }
-    .rsvp-success .t { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: 19px; letter-spacing: 0.06em; margin: 8px 0 0; line-height: 1.6; }
+    .rsvp-success .t { font-family: var(--serif); font-weight: 600; color: var(--navy); font-size: 19px; letter-spacing: 0.06em; margin: 8px 0 0; line-height: 1.6; }
     .rsvp-success .bar { width: 1px; height: 18px; background: var(--gold); margin: 16px auto; opacity: .8; }
     .rsvp-success .d { font-size: 14px; color: #4a4a4c; line-height: 2; }
     .rsvp-summary { margin: 24px 0 26px; background: #fff; border: 1px solid #e5e5e3; padding: 6px 18px; text-align: left; }
     .rsvp-summary div { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; padding: 10px 0; }
-    .rsvp-summary div + div { border-top: 1px dashed var(--line); }
+    .rsvp-summary div + div { border-top: 1px solid var(--line); }
     .rsvp-summary span:first-child { color: var(--muted); flex-shrink: 0; }
     .rsvp-summary span:last-child { color: var(--ink); text-align: right; word-break: keep-all; }
     .ok-btn { width: 100%; background: transparent; border: 1px solid var(--navy); color: var(--navy); font-family: var(--serif); font-size: 14px; letter-spacing: 0.2em; padding: 14px; cursor: pointer; }
     .ok-btn:hover { background: var(--navy); color: #fff; }
-        .acct { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px dashed var(--line); }
+        .acct { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); }
     .acct-who { font-size: 13px; color: var(--ink); }
     .acct-num { font-size: 12.5px; color: #6c6c6e; font-family: var(--sans); margin-top: 3px; }
     .accordion-item { transition: border-color 0.2s; }
@@ -500,6 +530,15 @@
     .accordion-item .accordion-content { padding-bottom: 0; }
     .accordion-item .acct:first-child { border-top: none; }
     .acct .copy-btn { margin-top: 0; padding: 7px 14px; flex-shrink: 0; }
+    .share-row { display: flex; justify-content: center; gap: 10px; margin-top: 44px; position: relative; z-index: 1; }
+    .share-btn {
+      background: transparent; border: 1px solid rgba(243, 243, 241, 0.45); color: #f3f3f1;
+      font-family: var(--serif); font-size: 13px; letter-spacing: 0.06em;
+      padding: 12px 0; width: 136px; cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .share-btn:hover { background: #f3f3f1; color: var(--navy-deep); }
+    /* 큰 제목 굵기 */
+    .person-label, .invite-names b, .modal-title, .rsvp-success .t, .detail-val .venue { font-weight: 600; }
   </style>
 </head>
 <body>
@@ -633,22 +672,36 @@
         <span class="detail-key">일시</span>
         <span class="detail-val">2027년 3월 20일 토요일<span class="detail-sub">오후 5시</span></span>
       </div>
+      <div class="mini-cal" aria-label="2027년 3월 달력, 20일 토요일">
+        <div class="mc-head">2027. 03</div>
+        <div class="mc-grid mc-wd"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+        <div class="mc-grid mc-days"><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span class="sun">7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span class="sun">14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span class="on">20</span><span class="sun">21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="sun">28</span><span>29</span><span>30</span><span>31</span></div>
+      </div>
       <div class="detail-row">
         <span class="detail-key">장소</span>
-        <span class="detail-val"><span class="venue">수원파티웨딩유</span><span class="detail-sub">경기 수원시 권선구 세화로 218</span>
-          <span class="map-toggle" onclick="toggleAcc('map')">상세 지도 · 교통 안내 <span id="arr-map">▼</span></span>
+        <span class="detail-val"><span class="venue">수원파티웨딩유</span><span class="detail-sub addr-line">경기 수원시 권선구 세화로 218<button class="addr-copy" onclick="copyAddress(this)">주소 복사</button></span>
         </span>
       </div>
     </div>
 
+    <a class="map-box rv" href="https://naver.me/x8kNJ9Hl" target="_blank" rel="noopener" aria-label="네이버 지도에서 보기">
+      <img src="../map.jpg" alt="약도">
+    </a>
+
+    <div class="nav-block rv">
+      <div class="nav-title">내비게이션</div>
+      <div class="nav-sub">원하는 앱을 누르면 바로 길찾기를 할 수 있어요.</div>
+      <div class="nav-row">
+        <a class="nav-btn" href="https://naver.me/x8kNJ9Hl" target="_blank" rel="noopener"><i style="background:#03C75A"></i>네이버지도</a>
+        <a class="nav-btn" href="https://kko.to/G4O2Etn2PQ" target="_blank" rel="noopener"><i style="background:#FEE500; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08)"></i>카카오맵</a>
+      </div>
+    </div>
+
+    <button class="tr-toggle rv" onclick="toggleAcc('map')"><span>교통 안내</span><span class="accordion-arrow" id="arr-map">▼</span></button>
     <div class="accordion-content map-panel" id="map">
       <div class="card">
-        <a href="https://naver.me/x8kNJ9Hl" target="_blank" rel="noopener" class="naver-btn">네이버 지도로 보기</a>
-
-        <img src="../map.jpg" class="map-img" alt="약도">
-
         <div class="tr-item">
-          <div class="tr-t">🚇 지하철 이용시</div>
+          <div class="tr-t">지하철</div>
           <div class="tr-line"><span class="line-badge l1">1호선</span><span class="line-badge lb">분당선</span><strong>수원역</strong> 하차</div>
           <ul class="tr-list">
             <li><b>셔틀버스</b> : 수원역 지하상가 13번출구 공항 리무진버스 정류장</li>
@@ -657,12 +710,12 @@
         </div>
 
         <div class="tr-item">
-          <div class="tr-t">🚌 버스 이용시</div>
+          <div class="tr-t">버스</div>
           <strong>수원역</strong> 정류장에 하차하는 모든 버스
         </div>
 
         <div class="tr-item">
-          <div class="tr-t">🚗 자가용 이용시</div>
+          <div class="tr-t">자가용</div>
           <ul class="tr-list">
             <li><b>명칭검색</b> : “파티웨딩유” 또는 “0312971000” 입력</li>
             <li><b>주소</b> : “경기도 수원시 권선구 세화로 218” 또는 “경기도 수원시 권선구 서둔동 9-16” 입력</li>
@@ -670,7 +723,7 @@
         </div>
 
         <div class="tr-item" style="padding-bottom:0;">
-          <div class="tr-t"><span class="p-badge">P</span>주차 안내</div>
+          <div class="tr-t">주차</div>
           대형주차시설 (동시 주차 700대 가능 / <strong>무료</strong>)<br>주차요원의 안내를 받으세요.
         </div>
       </div>
@@ -739,8 +792,12 @@
       <button class="rsvp-btn" onclick="openRsvp()">참석 여부 알리기</button>
     </div>
 
+    <div class="share-row rv">
+      <button class="share-btn" onclick="shareKakao()">카카오톡 공유</button>
+      <button class="share-btn" id="copy-link-btn" onclick="copyLink(this)">링크 복사</button>
+    </div>
+
     <div class="inv-footer rv">
-      
       <div class="footer-names">양지웅 · 박수민 · 2027</div>
     </div>
   </section>
@@ -998,6 +1055,33 @@
     if (e.key === 'ArrowRight') lbChange(1);
   });
 
+  /* ---------- 복사 공통 ---------- */
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function() { return legacyCopy(text); });
+    }
+    return legacyCopy(text);
+  }
+  function legacyCopy(text) {
+    return new Promise(function(resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.top = '-9999px';
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      ok ? resolve() : reject();
+    });
+  }
+
+  function copyAddress(btn) {
+    copyText('경기도 수원시 권선구 세화로 218').then(function() {
+      btn.textContent = '복사됨';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = '주소 복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
   /* ---------- 아코디언 · 복사 ---------- */
   function toggleAcc(id) {
     var content = document.getElementById(id);
@@ -1010,13 +1094,53 @@
   }
 
   function copyAccount(btn, number) {
-    navigator.clipboard.writeText(number).then(function() {
+    copyText(number).then(function() {
       btn.textContent = '완료';
       btn.classList.add('copied');
       setTimeout(function() {
         btn.textContent = '복사';
         btn.classList.remove('copied');
       }, 2000);
+    });
+  }
+
+  /* ---------- 공유 ---------- */
+  // 카카오 개발자 사이트(developers.kakao.com)에서 받은 JavaScript 키를 넣으면
+  // 카카오톡 공유 카드가 바로 열립니다. 비워두면 휴대폰 기본 공유창이 열려요.
+  var KAKAO_JS_KEY = '';
+  var SHARE_URL = 'https://jiwoong-soomin.github.io/wedding-invitation/family/';
+
+  if (KAKAO_JS_KEY) {
+    var ks = document.createElement('script');
+    ks.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    ks.onload = function() { if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KAKAO_JS_KEY); };
+    document.head.appendChild(ks);
+  }
+
+  function shareKakao() {
+    var meta = function(p) { var m = document.querySelector('meta[property="' + p + '"]'); return m ? m.content : ''; };
+    if (KAKAO_JS_KEY && window.Kakao && Kakao.isInitialized()) {
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: meta('og:title'),
+          description: meta('og:description'),
+          imageUrl: meta('og:image'),
+          link: { mobileWebUrl: SHARE_URL, webUrl: SHARE_URL }
+        },
+        buttons: [{ title: '청첩장 보기', link: { mobileWebUrl: SHARE_URL, webUrl: SHARE_URL } }]
+      });
+    } else if (navigator.share) {
+      navigator.share({ title: meta('og:title'), text: meta('og:description'), url: SHARE_URL }).catch(function() {});
+    } else {
+      copyLink(document.getElementById('copy-link-btn'));
+    }
+  }
+
+  function copyLink(btn) {
+    copyText(SHARE_URL).then(function() {
+      btn.textContent = '복사되었습니다';
+      setTimeout(function() { btn.textContent = '링크 복사'; }, 2000);
     });
   }
 
